@@ -1,6 +1,8 @@
 Running the program.
 
-First add the serials below to a file called serials.txt in the pFolder. To find the pFolder navigate to Users/"yourusename"/AppData/Local and search for pFolder.
+Firstly, set the GUIProject to be the startup project. Then, run it once (you will get an exception). Stop the program and follow the next step.
+
+Then add the serials below to a file called serials.txt in the pFolder. To find the pFolder navigate to Users/"yourusename"/AppData/Local and search for pFolder.
 Once there create the serials.txt file and add these (or any other random string IDs):
 
 gcUiPT9L8MKhBg
