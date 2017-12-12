@@ -109,6 +109,7 @@
   <ItemGroup>
     <Compile Include="InputVerification.cs" />
     <Compile Include="PersistenceManager.cs" />
+    <Compile Include="Person.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\CSharpAssignment2.rd.xml" />
   </ItemGroup>

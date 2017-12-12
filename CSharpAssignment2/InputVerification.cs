@@ -10,30 +10,28 @@ namespace CSharpAssignment2
     public class InputVerification
     {
 
-        private PersistenceManager pManager;
 
         public InputVerification()
         {
-            pManager = new PersistenceManager();
         }
 
-        public async Task<bool> VerifyInput(List<string> data)
+        public async Task<bool> VerifyInput(Person person)
         {
 
             //Potentially implement better error messages using enumerator
-            return CheckEmpty(data) & CheckNames(data[0], data[1]) & CheckEmail(data[2]) & CheckPhoneNumber(data[3]) & CheckSerial(data[5]);
+            return CheckNames(person.firstName, person.surName) & CheckEmail(person.emailAddress) & CheckPhoneNumber(person.phoneNumber) & CheckSerial(person.serialNumber);
+
         }
 
         private bool CheckSerial(string serial)
         {
-            Debug.WriteLine("Serial check verifier side");
-            return pManager.PCheckSerial(serial);
+            return PersistenceManager.Instance.PCheckSerial(serial);
         }
 
         private bool CheckPhoneNumber(string number)
         {
-            //Could check length, but would invalidate some foreign numbers. Assignment doesn't specify danes only.
-            if (!number.All(char.IsDigit))
+            //Check that length is less than or equal to 15, which is the accepted standard
+            if (!number.All(char.IsDigit) & number.Length <= 15)
             {
                 return false;
             }

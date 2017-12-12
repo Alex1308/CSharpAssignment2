@@ -37,21 +37,28 @@ namespace GUIProject
 
         private async void ConfirmInput(object sender, RoutedEventArgs e)
         {
-            List<string> tempList = new List<string>();
-            tempList.Add(firstNameInput.Text);
-            tempList.Add(surNameInput.Text);
-            tempList.Add(emailAddressInput.Text);
-            tempList.Add(phoneNumberInput.Text);
-            tempList.Add(datePickerInput.Date.ToString());
-            tempList.Add(serialNumberInput.Text);
+            Person person = new Person(firstNameInput.Text, surNameInput.Text, emailAddressInput.Text, phoneNumberInput.Text, (DateTimeOffset)datePickerInput.Date, serialNumberInput.Text);
 
-            if (await verifier.VerifyInput(tempList))
+            if (!(String.IsNullOrWhiteSpace(firstNameInput.Text)
+                & String.IsNullOrWhiteSpace(surNameInput.Text)
+                & String.IsNullOrWhiteSpace(emailAddressInput.Text)
+                & String.IsNullOrWhiteSpace(phoneNumberInput.Text)
+                & String.IsNullOrWhiteSpace(serialNumberInput.Text)
+                & datePickerInput.Date == null))
             {
-                //Create confirmation box and create person
-
-            } else
+                if (await verifier.VerifyInput(person))
+                {
+                    //Create confirmation box and create person
+                    PersistenceManager.Instance.AddPerson(person);
+                }
+                else
+                {
+                    //Display error message
+                }
+            }
+            else
             {
-                //Display error message
+                //Error message - please enter something in all fields
             }
 
         }

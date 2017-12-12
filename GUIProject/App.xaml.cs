@@ -25,15 +25,14 @@ namespace GUIProject
     sealed partial class App : Application
     {
 
-        PersistenceManager pManager;
         /// <summary>
         /// Initializes the singleton application object.  This is the first line of authored code
         /// executed, and as such is the logical equivalent of main() or WinMain().
         /// </summary>
         public App()
         {
+            PersistenceManager.Instance.Initialise();
             this.InitializeComponent();
-            pManager = new PersistenceManager();
             this.Suspending += OnSuspending;
         }
 
@@ -104,7 +103,8 @@ namespace GUIProject
         private void OnSuspending(object sender, SuspendingEventArgs e)
         {
             Debug.WriteLine("Before");
-            pManager.OnSuspendingAsync();
+            PersistenceManager.Instance.OnSuspendingAsync();
+            PersistenceManager.Instance.SavePersonXMLAsync();
             Debug.WriteLine("After");
             var deferral = e.SuspendingOperation.GetDeferral();
             //TODO: Save application state and stop any background activity
