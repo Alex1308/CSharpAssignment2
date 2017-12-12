@@ -31,5 +31,17 @@ namespace CSharpAssignment2
         {
 
         }
+
+        public override string ToString()
+        {
+            string stringToReturn =
+                "First Name: " + firstName +
+                " | Sur Name: " + surName +
+                " | Email Address: " + emailAddress +
+                " | Phone Number: " + phoneNumber +
+                " | Date of Birth: " + dateOfBirth.ToString() +
+                " | Serial number: " + serialNumber;
+            return stringToReturn;
+        }
     }
 }

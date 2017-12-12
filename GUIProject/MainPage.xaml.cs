@@ -30,37 +30,77 @@ namespace GUIProject
             this.InitializeComponent();
             verifier = new InputVerification();
             datePickerInput.MaxDate = DateTime.Now;
+            listView.ItemsSource = PersistenceManager.Instance.people;
         }
+
+
 
         private InputVerification verifier;
 
 
         private async void ConfirmInput(object sender, RoutedEventArgs e)
         {
-            Person person = new Person(firstNameInput.Text, surNameInput.Text, emailAddressInput.Text, phoneNumberInput.Text, (DateTimeOffset)datePickerInput.Date, serialNumberInput.Text);
-
-            if (!(String.IsNullOrWhiteSpace(firstNameInput.Text)
-                & String.IsNullOrWhiteSpace(surNameInput.Text)
-                & String.IsNullOrWhiteSpace(emailAddressInput.Text)
-                & String.IsNullOrWhiteSpace(phoneNumberInput.Text)
-                & String.IsNullOrWhiteSpace(serialNumberInput.Text)
-                & datePickerInput.Date == null))
+            try
             {
+                Person person = new Person(firstNameInput.Text, surNameInput.Text, emailAddressInput.Text, phoneNumberInput.Text, (DateTimeOffset)datePickerInput.Date, serialNumberInput.Text);
                 if (await verifier.VerifyInput(person))
                 {
                     //Create confirmation box and create person
+                    //The pop up window is too small, but I haven't been able to figure out why and decided to leave it as is, since GUI was unimportant
+                    if (!confirmationBox.IsOpen)
+                    {
+                        confirmationBox.IsOpen = true;
+                    }
+
+                    //Clear input boxes
+                    firstNameInput.Text = String.Empty;
+                    surNameInput.Text = String.Empty;
+                    emailAddressInput.Text = String.Empty;
+                    phoneNumberInput.Text = String.Empty;
+                    serialNumberInput.Text = String.Empty;
+                    datePickerInput.Date = null;
+                    //Clearing done
+
                     PersistenceManager.Instance.AddPerson(person);
                 }
                 else
                 {
                     //Display error message
+                    //The pop up window is too small, but I haven't been able to figure out why and decided to leave it as is, since GUI was unimportant
+                    errorText.Text = "One of your entries are wrong. Please double check your input.";
+                    if (!errorBox.IsOpen)
+                    {
+                        errorBox.IsOpen = true;
+                    }
                 }
             }
-            else
+            catch (Exception)
             {
                 //Error message - please enter something in all fields
+                //The pop up window is too small, but I haven't been able to figure out why and decided to leave it as is, since GUI was unimportant
+                errorText.Text = "Please enter something in every input field.";
+                if (!errorBox.IsOpen)
+                {
+                    errorBox.IsOpen = true;
+                }
             }
 
+        }
+
+        private void ClosePopupClicked(object sender, RoutedEventArgs e)
+        {
+            if (confirmationBox.IsOpen)
+            {
+                confirmationBox.IsOpen = false;
+            }
+        }
+
+        private void CloseErrorClicked(object sender, RoutedEventArgs e)
+        {
+            if (errorBox.IsOpen)
+            {
+                errorBox.IsOpen = false;
+            }
         }
     }
 }

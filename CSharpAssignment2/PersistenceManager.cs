@@ -15,7 +15,7 @@ namespace CSharpAssignment2
 
         private string serialFileName = "serials.txt";
         private string xmlFileName = "people.xml";
-        private List<Person> people;
+        public List<Person> people { get; set; }
         List<string> serialsFromFile = new List<string>();
         StorageFile serialFile;
         StorageFile xmlFile;
@@ -47,7 +47,13 @@ namespace CSharpAssignment2
             var files = await pFolder.GetFilesAsync();
             serialFile = files.FirstOrDefault(file => file.Name == serialFileName);
             people = new List<Person>();
-            await ReadFromXml();
+            try
+            {
+                await ReadFromXml();
+            }
+            catch (Exception)
+            {
+            }
 
             IList<string> readSerials = await FileIO.ReadLinesAsync(serialFile);
             foreach (string s in readSerials)
@@ -101,6 +107,16 @@ namespace CSharpAssignment2
             {
                 serializer.Serialize(stream, people);
             }
+        }
+
+        public List<string> PrintPeople()
+        {
+            List<string> stringifiedPeople = new List<string>();
+            foreach (var person in people)
+            {
+                stringifiedPeople.Add(person.ToString());
+            }
+            return stringifiedPeople;
         }
 
 

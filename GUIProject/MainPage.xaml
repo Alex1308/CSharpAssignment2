@@ -8,20 +8,49 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <TextBlock x:Name="title" HorizontalAlignment="Left" Margin="10,20,0,0" TextWrapping="Wrap" Text="Input form" VerticalAlignment="Top" FontSize="30"/>
-        <TextBlock x:Name="firstName" HorizontalAlignment="Left" Margin="10,70,0,0" TextWrapping="Wrap" Text="First name" VerticalAlignment="Top"/>
-        <TextBox x:Name="firstNameInput" HorizontalAlignment="Left" Margin="10,92,0,0" TextWrapping="Wrap" PlaceholderText="First name" VerticalAlignment="Top" InputScope="Text"/>
-        <TextBlock x:Name="surName" HorizontalAlignment="Left" Margin="10,142,0,0" TextWrapping="Wrap" Text="Sur name" VerticalAlignment="Top"/>
-        <TextBox x:Name="surNameInput" HorizontalAlignment="Left" Margin="10,164,0,0" TextWrapping="Wrap" PlaceholderText="Sur name" VerticalAlignment="Top" InputScope="Text"/>
-        <TextBlock x:Name="emailAddress" HorizontalAlignment="Left" Margin="10,214,0,0" TextWrapping="Wrap" Text="Email address" VerticalAlignment="Top"/>
-        <TextBox x:Name="emailAddressInput" HorizontalAlignment="Left" Margin="10,236,0,0" TextWrapping="Wrap" PlaceholderText="Email address" VerticalAlignment="Top" InputScope="EmailNameOrAddress"/>
-        <TextBlock x:Name="phoneNumber" HorizontalAlignment="Left" Margin="10,286,0,0" TextWrapping="Wrap" Text="Phone number" VerticalAlignment="Top"/>
-        <TextBox x:Name="phoneNumberInput" HorizontalAlignment="Left" Margin="10,308,0,0" TextWrapping="Wrap" PlaceholderText="Phone number" VerticalAlignment="Top" InputScope="NameOrPhoneNumber"/>
-        <TextBlock x:Name="datePicker" HorizontalAlignment="Left" Margin="10,358,0,0" TextWrapping="Wrap" Text="Date of birth" VerticalAlignment="Top"/>
-        <CalendarDatePicker x:Name="datePickerInput" HorizontalAlignment="Left" Margin="10,380,0,0" VerticalAlignment="Top" AllowDrop="True" DateFormat="{}{year.full}/{month.integer}/{day.integer}"/>
-        <TextBlock x:Name="serialNumber" HorizontalAlignment="Left" Margin="10,430,0,0" TextWrapping="Wrap" Text="Serial number" VerticalAlignment="Top"/>
-        <TextBox x:Name="serialNumberInput" HorizontalAlignment="Left" Margin="10,452,0,0" TextWrapping="Wrap" PlaceholderText="Serial number" VerticalAlignment="Top" InputScope="AlphanumericPin"/>
-        <Button x:Name="inputButton" Content="Confirm Input" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" FontSize="20" Click="ConfirmInput"/>
-
+        <Pivot>
+            <PivotItem Header="Input form">
+                <Grid>
+                    <TextBlock x:Name="firstName" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="First name" VerticalAlignment="Top"/>
+                    <TextBox x:Name="firstNameInput" HorizontalAlignment="Left" Margin="10,32,0,0" TextWrapping="Wrap" PlaceholderText="First name" VerticalAlignment="Top" InputScope="Text"/>
+                    <TextBlock x:Name="surName" HorizontalAlignment="Left" Margin="10,82,0,0" TextWrapping="Wrap" Text="Sur name" VerticalAlignment="Top"/>
+                    <TextBox x:Name="surNameInput" HorizontalAlignment="Left" Margin="10,104,0,0" TextWrapping="Wrap" PlaceholderText="Sur name" VerticalAlignment="Top" InputScope="Text"/>
+                    <TextBlock x:Name="emailAddress" HorizontalAlignment="Left" Margin="10,154,0,0" TextWrapping="Wrap" Text="Email address" VerticalAlignment="Top"/>
+                    <TextBox x:Name="emailAddressInput" HorizontalAlignment="Left" Margin="10,176,0,0" TextWrapping="Wrap" PlaceholderText="Email address" VerticalAlignment="Top" InputScope="EmailNameOrAddress"/>
+                    <TextBlock x:Name="phoneNumber" HorizontalAlignment="Left" Margin="10,226,0,0" TextWrapping="Wrap" Text="Phone number" VerticalAlignment="Top"/>
+                    <TextBox x:Name="phoneNumberInput" HorizontalAlignment="Left" Margin="10,248,0,0" TextWrapping="Wrap" PlaceholderText="Phone number" VerticalAlignment="Top" InputScope="NameOrPhoneNumber"/>
+                    <TextBlock x:Name="datePicker" HorizontalAlignment="Left" Margin="10,298,0,0" TextWrapping="Wrap" Text="Date of birth" VerticalAlignment="Top"/>
+                    <CalendarDatePicker x:Name="datePickerInput" HorizontalAlignment="Left" Margin="10,320,0,0" VerticalAlignment="Top" AllowDrop="True" DateFormat="{}{year.full}/{month.integer}/{day.integer}"/>
+                    <TextBlock x:Name="serialNumber" HorizontalAlignment="Left" Margin="10,370,0,0" TextWrapping="Wrap" Text="Serial number" VerticalAlignment="Top"/>
+                    <TextBox x:Name="serialNumberInput" HorizontalAlignment="Left" Margin="10,392,0,0" TextWrapping="Wrap" PlaceholderText="Serial number" VerticalAlignment="Top" InputScope="AlphanumericPin"/>
+                    <Button x:Name="inputButton" Content="Confirm Input" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" FontSize="20" Click="ConfirmInput"/>
+                </Grid>
+            </PivotItem>
+            <PivotItem Header="Submission View">
+                <Grid>
+                    <ListView x:Name="listView" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Top" Grid.RowSpan="6"/>
+                </Grid>
+            </PivotItem>
+        </Pivot>
+        <Popup x:Name="confirmationBox" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Border BorderBrush="{StaticResource ApplicationForegroundThemeBrush}" 
+                Background="{StaticResource ApplicationPageBackgroundThemeBrush}"
+                BorderThickness="2" Width="200" Height="200">
+                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <TextBlock Text="Submission received successfully" FontSize="20" HorizontalAlignment="Center"/>
+                    <Button Content="Close" Click="ClosePopupClicked" HorizontalAlignment="Center"/>
+                </StackPanel>
+            </Border>
+        </Popup>
+        <Popup x:Name="errorBox" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Border BorderBrush="{StaticResource ApplicationForegroundThemeBrush}" 
+                Background="{StaticResource ApplicationPageBackgroundThemeBrush}"
+                BorderThickness="2" Width="200" Height="200">
+                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <TextBlock x:Name="errorText" Text="Submission received successfully" FontSize="20" HorizontalAlignment="Center"/>
+                    <Button Content="Close" Click="CloseErrorClicked" HorizontalAlignment="Center"/>
+                </StackPanel>
+            </Border>
+        </Popup>
     </Grid>
 </Page>
