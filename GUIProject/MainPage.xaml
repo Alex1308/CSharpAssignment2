@@ -1,26 +1,27 @@
 ﻿<Page
-    x:Class="CSharpAssignment2.BlankPage1"
+    x:Class="GUIProject.MainPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:CSharpAssignment2"
+    xmlns:local="using:GUIProject"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid x:Name="Background" Background="{ThemeResource AppBarBackgroundThemeBrush}">
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <TextBlock x:Name="title" HorizontalAlignment="Left" Margin="10,20,0,0" TextWrapping="Wrap" Text="Input form" VerticalAlignment="Top" FontSize="30"/>
         <TextBlock x:Name="firstName" HorizontalAlignment="Left" Margin="10,70,0,0" TextWrapping="Wrap" Text="First name" VerticalAlignment="Top"/>
-        <TextBox x:Name="firstNameInput" HorizontalAlignment="Left" Margin="10,92,0,0" TextWrapping="Wrap" Text="First name" VerticalAlignment="Top" InputScope="Text"/>
+        <TextBox x:Name="firstNameInput" HorizontalAlignment="Left" Margin="10,92,0,0" TextWrapping="Wrap" PlaceholderText="First name" VerticalAlignment="Top" InputScope="Text"/>
         <TextBlock x:Name="surName" HorizontalAlignment="Left" Margin="10,142,0,0" TextWrapping="Wrap" Text="Sur name" VerticalAlignment="Top"/>
-        <TextBox x:Name="surNameInput" HorizontalAlignment="Left" Margin="10,164,0,0" TextWrapping="Wrap" Text="Sur name" VerticalAlignment="Top" InputScope="Text"/>
+        <TextBox x:Name="surNameInput" HorizontalAlignment="Left" Margin="10,164,0,0" TextWrapping="Wrap" PlaceholderText="Sur name" VerticalAlignment="Top" InputScope="Text"/>
         <TextBlock x:Name="emailAddress" HorizontalAlignment="Left" Margin="10,214,0,0" TextWrapping="Wrap" Text="Email address" VerticalAlignment="Top"/>
-        <TextBox x:Name="emailAddressInput" HorizontalAlignment="Left" Margin="10,236,0,0" TextWrapping="Wrap" Text="Email address" VerticalAlignment="Top" InputScope="EmailNameOrAddress"/>
+        <TextBox x:Name="emailAddressInput" HorizontalAlignment="Left" Margin="10,236,0,0" TextWrapping="Wrap" PlaceholderText="Email address" VerticalAlignment="Top" InputScope="EmailNameOrAddress"/>
         <TextBlock x:Name="phoneNumber" HorizontalAlignment="Left" Margin="10,286,0,0" TextWrapping="Wrap" Text="Phone number" VerticalAlignment="Top"/>
-        <TextBox x:Name="phoneNumberInput" HorizontalAlignment="Left" Margin="10,308,0,0" TextWrapping="Wrap" Text="Phone number" VerticalAlignment="Top" InputScope="NameOrPhoneNumber"/>
+        <TextBox x:Name="phoneNumberInput" HorizontalAlignment="Left" Margin="10,308,0,0" TextWrapping="Wrap" PlaceholderText="Phone number" VerticalAlignment="Top" InputScope="NameOrPhoneNumber"/>
         <TextBlock x:Name="datePicker" HorizontalAlignment="Left" Margin="10,358,0,0" TextWrapping="Wrap" Text="Date of birth" VerticalAlignment="Top"/>
-        <DatePicker x:Name="datePickerInput" HorizontalAlignment="Left" Margin="10,380,0,0" VerticalAlignment="Top"/>
+        <CalendarDatePicker x:Name="datePickerInput" HorizontalAlignment="Left" Margin="10,380,0,0" VerticalAlignment="Top" AllowDrop="True" DateFormat="{}{year.full}/{month.integer}/{day.integer}"/>
         <TextBlock x:Name="serialNumber" HorizontalAlignment="Left" Margin="10,430,0,0" TextWrapping="Wrap" Text="Serial number" VerticalAlignment="Top"/>
-        <TextBox x:Name="serialNumberInput" HorizontalAlignment="Left" Margin="10,452,0,0" TextWrapping="Wrap" Text="Serial number" VerticalAlignment="Top" InputScope="AlphanumericPin"/>
+        <TextBox x:Name="serialNumberInput" HorizontalAlignment="Left" Margin="10,452,0,0" TextWrapping="Wrap" PlaceholderText="Serial number" VerticalAlignment="Top" InputScope="AlphanumericPin"/>
         <Button x:Name="inputButton" Content="Confirm Input" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" FontSize="20" Click="ConfirmInput"/>
+
     </Grid>
 </Page>
