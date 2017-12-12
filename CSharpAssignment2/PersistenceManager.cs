@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -17,10 +18,10 @@ namespace CSharpAssignment2
 
         public PersistenceManager()
         {
-            CreateFolder();
+            CreateFolderAsync();
         }
 
-        private async void CreateFolder()
+        private async void CreateFolderAsync()
         {
             var localFolder = ApplicationData.Current.LocalFolder;
             var pFolder = await localFolder.CreateFolderAsync("pFolder", CreationCollisionOption.OpenIfExists);
@@ -45,27 +46,25 @@ namespace CSharpAssignment2
         {
             bool found = false;
 
+            Debug.WriteLine("Serial check persistence side" + serial);
 
-
-            serialsFromFile.ForEach(x =>
+            //Reverse through List to allow removal during iteration
+            foreach (string x in serialsFromFile.Reverse<string>())
             {
                 if (serial.Equals(x))
                 {
-                    //Remove serial from txt file using LinQ
                     serialsFromFile.Remove(x);
                     found = true;
                 }
-            });
-
-            //With such a small text file it is okay to write the entire list of strings after removing the used up serial number
+            }
 
             return found;
         }
 
 
-        public void OnSuspending()
+        public async Task OnSuspendingAsync()
         {
-             FileIO.WriteLinesAsync(serialFile, serialsFromFile);
+            await FileIO.WriteLinesAsync(serialFile, serialsFromFile);
         }
     }
 }

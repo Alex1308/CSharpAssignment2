@@ -45,11 +45,14 @@ namespace GUIProject
             tempList.Add(datePickerInput.Date.ToString());
             tempList.Add(serialNumberInput.Text);
 
-            tempList.ForEach(x =>
+            if (await verifier.VerifyInput(tempList))
             {
-                Debug.WriteLine(x);
-            });
+                //Create confirmation box and create person
 
+            } else
+            {
+                //Display error message
+            }
 
         }
     }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,6 +26,7 @@ namespace CSharpAssignment2
 
         private bool CheckSerial(string serial)
         {
+            Debug.WriteLine("Serial check verifier side");
             return pManager.PCheckSerial(serial);
         }
 

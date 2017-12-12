@@ -104,7 +104,7 @@ namespace GUIProject
         private void OnSuspending(object sender, SuspendingEventArgs e)
         {
             Debug.WriteLine("Before");
-            pManager.OnSuspending();
+            pManager.OnSuspendingAsync();
             Debug.WriteLine("After");
             var deferral = e.SuspendingOperation.GetDeferral();
             //TODO: Save application state and stop any background activity
