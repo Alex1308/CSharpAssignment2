@@ -127,9 +127,9 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CSharpAssignment2\CSharpAssignment2.csproj">
+    <ProjectReference Include="..\CSharpAssignment2\ProjectLibrary.csproj">
       <Project>{b4f2f479-7455-415c-ad5e-71da4c61ad4f}</Project>
-      <Name>CSharpAssignment2</Name>
+      <Name>ProjectLibrary</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">

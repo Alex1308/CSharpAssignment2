@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharpAssignment2", "CSharpAssignment2\CSharpAssignment2.csproj", "{B4F2F479-7455-415C-AD5E-71DA4C61AD4F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectLibrary", "CSharpAssignment2\ProjectLibrary.csproj", "{B4F2F479-7455-415C-AD5E-71DA4C61AD4F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GUIProject", "GUIProject\GUIProject.csproj", "{BFBAE33D-2112-47C2-A557-ECB0189628BD}"
 EndProject
