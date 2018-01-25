@@ -21,7 +21,6 @@ namespace UnitTestLibrary
 
             //Test verification of input
             Assert.IsTrue(ver.TestVerifyInput(testPerson));
-
         }
     }
 }
