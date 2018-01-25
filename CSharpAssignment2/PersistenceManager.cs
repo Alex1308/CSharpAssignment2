@@ -91,9 +91,10 @@ namespace ProjectLibrary
             var deserializer = new XmlSerializer(typeof(List<Person>));
             var files = await pFolder.GetFilesAsync();
             xmlFile = files.FirstOrDefault(file => file.Name == xmlFileName);
-            Stream stream = await xmlFile.OpenStreamForReadAsync();
-            deserializedPeople = (List<Person>)deserializer.Deserialize(stream);
-            stream.Dispose();
+            using (Stream stream = await xmlFile.OpenStreamForReadAsync())
+            {
+                deserializedPeople = (List<Person>)deserializer.Deserialize(stream);
+            }
             people = deserializedPeople;
         }
 
@@ -101,9 +102,7 @@ namespace ProjectLibrary
         {
             var serializer = new XmlSerializer(typeof(List<Person>));
             StorageFile file = await pFolder.CreateFileAsync(xmlFileName, CreationCollisionOption.ReplaceExisting);
-            Stream stream = await file.OpenStreamForWriteAsync();
-
-            using (stream)
+            using (Stream stream = await file.OpenStreamForWriteAsync())
             {
                 serializer.Serialize(stream, people);
             }

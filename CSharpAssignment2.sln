@@ -12,6 +12,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		readme.md = readme.md
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestLibrary", "UnitTestLibrary\UnitTestLibrary.csproj", "{B687285B-17EF-4E6C-9980-CBB6AFBFCD49}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +65,26 @@ Global
 		{BFBAE33D-2112-47C2-A557-ECB0189628BD}.Release|x86.ActiveCfg = Release|x86
 		{BFBAE33D-2112-47C2-A557-ECB0189628BD}.Release|x86.Build.0 = Release|x86
 		{BFBAE33D-2112-47C2-A557-ECB0189628BD}.Release|x86.Deploy.0 = Release|x86
+		{B687285B-17EF-4E6C-9980-CBB6AFBFCD49}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{B687285B-17EF-4E6C-9980-CBB6AFBFCD49}.Debug|ARM.ActiveCfg = Debug|ARM
+		{B687285B-17EF-4E6C-9980-CBB6AFBFCD49}.Debug|ARM.Build.0 = Debug|ARM
+		{B687285B-17EF-4E6C-9980-CBB6AFBFCD49}.Debug|ARM.Deploy.0 = Debug|ARM
+		{B687285B-17EF-4E6C-9980-CBB6AFBFCD49}.Debug|x64.ActiveCfg = Debug|x64
+		{B687285B-17EF-4E6C-9980-CBB6AFBFCD49}.Debug|x64.Build.0 = Debug|x64
+		{B687285B-17EF-4E6C-9980-CBB6AFBFCD49}.Debug|x64.Deploy.0 = Debug|x64
+		{B687285B-17EF-4E6C-9980-CBB6AFBFCD49}.Debug|x86.ActiveCfg = Debug|x86
+		{B687285B-17EF-4E6C-9980-CBB6AFBFCD49}.Debug|x86.Build.0 = Debug|x86
+		{B687285B-17EF-4E6C-9980-CBB6AFBFCD49}.Debug|x86.Deploy.0 = Debug|x86
+		{B687285B-17EF-4E6C-9980-CBB6AFBFCD49}.Release|Any CPU.ActiveCfg = Release|x86
+		{B687285B-17EF-4E6C-9980-CBB6AFBFCD49}.Release|ARM.ActiveCfg = Release|ARM
+		{B687285B-17EF-4E6C-9980-CBB6AFBFCD49}.Release|ARM.Build.0 = Release|ARM
+		{B687285B-17EF-4E6C-9980-CBB6AFBFCD49}.Release|ARM.Deploy.0 = Release|ARM
+		{B687285B-17EF-4E6C-9980-CBB6AFBFCD49}.Release|x64.ActiveCfg = Release|x64
+		{B687285B-17EF-4E6C-9980-CBB6AFBFCD49}.Release|x64.Build.0 = Release|x64
+		{B687285B-17EF-4E6C-9980-CBB6AFBFCD49}.Release|x64.Deploy.0 = Release|x64
+		{B687285B-17EF-4E6C-9980-CBB6AFBFCD49}.Release|x86.ActiveCfg = Release|x86
+		{B687285B-17EF-4E6C-9980-CBB6AFBFCD49}.Release|x86.Build.0 = Release|x86
+		{B687285B-17EF-4E6C-9980-CBB6AFBFCD49}.Release|x86.Deploy.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

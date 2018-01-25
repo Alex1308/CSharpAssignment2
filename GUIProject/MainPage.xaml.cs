@@ -35,7 +35,7 @@ namespace GUIProject
 
 
 
-        private InputVerification verifier;
+        private IInputVerification verifier;
 
 
         private async void ConfirmInput(object sender, RoutedEventArgs e)

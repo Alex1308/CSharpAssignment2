@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ProjectLibrary
 {
-    public class InputVerification
+    public class InputVerification : IInputVerification
     {
 
 
@@ -66,6 +66,11 @@ namespace ProjectLibrary
             return true;
         }
 
+        public bool TestVerifyInput(Person person)
+        {
+            //Only used for testing the checks
+            return CheckNames(person.firstName, person.surName) & CheckEmail(person.emailAddress) & CheckPhoneNumber(person.phoneNumber);
+        }
 
     }
 }
